@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Feedback from './Feedback/Feedback';
 import Statistics from './Statistics/Statistics';
 import Notification from './Notification/Notification';
@@ -60,5 +60,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;
