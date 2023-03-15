@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import {
-  StatisticsContainer,
-  StatisticsTitle,
   StatisticsList,
   StatisticsItem,
   StatisticsName,
@@ -21,31 +19,24 @@ class Statistics extends Component {
 
   render() {
     return (
-      <StatisticsContainer>
-        <StatisticsTitle>Statistics</StatisticsTitle>
-        <StatisticsList>
-          {Object.entries(this.props.stat).map(([key, value]) => {
-            return (
-              <StatisticsItem key={shortid.generate()}>
-                <StatisticsName key={shortid.generate()}>
-                  {key}:{' '}
-                </StatisticsName>
-                <span key={shortid.generate()}>{value}</span>
-              </StatisticsItem>
-            );
-          })}
-          <StatisticsItem key={shortid.generate()}>
-            <span key={shortid.generate()}>Total: </span>
-            <span key={shortid.generate()}>{this.props.total}</span>
-          </StatisticsItem>
-          <StatisticsItem key={shortid.generate()}>
-            <span key={shortid.generate()}>Positive feedback: </span>
-            <span key={shortid.generate()}>
-              {this.props.positivePercentage}%
-            </span>
-          </StatisticsItem>
-        </StatisticsList>
-      </StatisticsContainer>
+      <StatisticsList>
+        {Object.entries(this.props.stat).map(([key, value]) => {
+          return (
+            <StatisticsItem key={shortid.generate()}>
+              <StatisticsName key={shortid.generate()}>{key}: </StatisticsName>
+              <span key={shortid.generate()}>{value}</span>
+            </StatisticsItem>
+          );
+        })}
+        <StatisticsItem key={shortid.generate()}>
+          <span key={shortid.generate()}>Total: </span>
+          <span key={shortid.generate()}>{this.props.total}</span>
+        </StatisticsItem>
+        <StatisticsItem key={shortid.generate()}>
+          <span key={shortid.generate()}>Positive feedback: </span>
+          <span key={shortid.generate()}>{this.props.positivePercentage}%</span>
+        </StatisticsItem>
+      </StatisticsList>
     );
   }
 }

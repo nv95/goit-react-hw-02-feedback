@@ -1,10 +1,5 @@
 import { Component } from 'react';
-import {
-  FeedbackContainer,
-  FeedbackTitle,
-  FeedbackButtons,
-  FeedbackBut,
-} from './Feedback.styled';
+import { FeedbackButtons, FeedbackBut } from './Feedback.styled';
 import PropTypes from 'prop-types';
 
 class Feedback extends Component {
@@ -18,21 +13,18 @@ class Feedback extends Component {
 
   render() {
     return (
-      <FeedbackContainer>
-        <FeedbackTitle>Please leave feedback</FeedbackTitle>
-        <FeedbackButtons>
-          {this.props.options.map(btn => (
-            <FeedbackBut
-              value={btn}
-              key={btn}
-              type="button"
-              onClick={e => this.props.onLeaveFeedback(e)}
-            >
-              {btn}
-            </FeedbackBut>
-          ))}
-        </FeedbackButtons>
-      </FeedbackContainer>
+      <FeedbackButtons>
+        {this.props.options.map(btn => (
+          <FeedbackBut
+            value={btn}
+            key={btn}
+            type="button"
+            onClick={e => this.props.onLeaveFeedback(e)}
+          >
+            {btn}
+          </FeedbackBut>
+        ))}
+      </FeedbackButtons>
     );
   }
 }
